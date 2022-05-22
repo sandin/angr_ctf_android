@@ -1,6 +1,6 @@
 # angr ctf android
 
-This project base on [angr_ctf](https://github.com/jakespringer/angr_ctf), but  modify it to compile into an AMR64 arch using Android NDK, and use [Jupyter](https://jupyter.org/) notebook to analyze them.
+This project base on [angr_ctf](https://github.com/jakespringer/angr_ctf), but  modify it to compile into AMR64 arch using Android NDK, and use [Jupyter](https://jupyter.org/) notebook to analyze them.
 
 
 ## Requirement
