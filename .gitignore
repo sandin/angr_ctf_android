@@ -1,0 +1,11 @@
+__pycache__
+*.swp
+obj/
+*.pyc
+env
+obj
+users
+env
+venv/
+build/
+.DS_Store
