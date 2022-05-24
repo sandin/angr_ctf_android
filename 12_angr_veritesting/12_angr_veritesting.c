@@ -1,12 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdint.h>
 
-#define USERDEF "PPBVDNMJ"
-#define LEN_USERDEF 8
-
-char msg[] =
-  "";
+char msg[] = "";
 
 void print_msg() {
   printf("%s", msg);
@@ -22,20 +19,28 @@ int complex_function(int value, int i) {
 }
 
 int main(int argc, char* argv[]) {
-  char buffer[9];
+  char buffer[33];
 
   //print_msg();
 
+  memset(buffer, 0, 33);
+
   printf("Enter the password: ");
-  scanf("%8s", buffer);
+  scanf("%32s", buffer);
 
-  for (int i=0; i<LEN_USERDEF; ++i) {
-    buffer[i] = complex_function(buffer[i], i);
+  int counter0 = 0;
+  int counter1 = 0;
+  for (int i=0; i<32; ++i) {
+    if (buffer[i] == complex_function('P', i + 244) ) {
+      counter0++;
+    }
   }
 
-  if (strcmp(buffer, USERDEF)) {
-    printf("Try again.\n");
-  } else {
+  if (counter0 == 32 && buffer[33] == 0x0) {
     printf("Good Job.\n");
+  } else {
+    printf("Try again.\n");
   }
+
+  return 0;
 }

@@ -1,19 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define USERDEF "PPBVDNMJABAQHZQQHVQWECCSFPJYYVDO"
 
-#define USERDEF "PPBVDNMJ"
-#define LEN_USERDEF 8
+char padding0[ 66412160 ];
+char user_input[32+1];
+char padding1[ 52567112 ];
 
-char msg[] =
-  "";
+char msg[] = "";
 
 void print_msg() {
   printf("%s", msg);
 }
 
 int complex_function(int value, int i) {
-#define LAMBDA 3
+#define LAMBDA 9
   if (!('A' <= value && value <= 'Z')) {
     printf("Try again.\n");
     exit(1);
@@ -22,18 +23,17 @@ int complex_function(int value, int i) {
 }
 
 int main(int argc, char* argv[]) {
-  char buffer[9];
+  memset(user_input, 0, sizeof(user_input));
 
   //print_msg();
-
   printf("Enter the password: ");
-  scanf("%8s", buffer);
+  scanf("%8s %8s %8s %8s", user_input, &user_input[8], &user_input[16], &user_input[24]);
 
-  for (int i=0; i<LEN_USERDEF; ++i) {
-    buffer[i] = complex_function(buffer[i], i);
+  for (int i=0; i<32; ++i) {
+    user_input[i] = (char) complex_function(user_input[i], i);
   }
 
-  if (strcmp(buffer, USERDEF)) {
+  if (strncmp(user_input, USERDEF, 32)) {
     printf("Try again.\n");
   } else {
     printf("Good Job.\n");
