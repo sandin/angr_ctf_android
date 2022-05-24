@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-register int eax asm("eax");
-register int ebx asm("ebx");
-register int edx asm("edx");
+register int w5 asm("w5");
+register int w6 asm("w6");
+register int w7 asm("w7");
 
 char msg[] = "";
 
@@ -29,23 +29,23 @@ input+=769985663;input^=1535478303;input^=2090456968;input^=2485784096;input+=39
 void get_user_input() {
   int first, second, third;
   scanf("%x %x %x", &first, &second, &third);
-  eax = first;
-  ebx = second;
-  edx = third;
+  w5 = first;
+  w6 = second;
+  w7 = third;
 }
 
 int main(int argc, char* argv[]) {
   //print_msg();
   printf("Enter the password: ");
   get_user_input();
-  int non_eax = eax;
-  int non_ebx = ebx;
-  int non_edx = edx;
+  int non_eax = w5;
+  int non_w6 = w6;
+  int non_w7 = w7;
   non_eax = complex_function_1(non_eax);
-  non_ebx = complex_function_2(non_ebx);
-  non_edx = complex_function_3(non_edx);
+  non_w6 = complex_function_2(non_w6);
+  non_w7 = complex_function_3(non_w7);
 
-  if (non_eax || non_ebx || non_edx) {
+  if (non_eax || non_w6 || non_w7) {
     printf("Try again.\n");
   } else {
     printf("Good Job.\n");
