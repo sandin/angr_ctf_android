@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define USERDEF "PPBVDNMJ"
+#define USERDEF "WJAEJWJA"
 #define LEN_USERDEF 8
 
 char msg[] =
