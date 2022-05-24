@@ -27,3 +27,16 @@ all output files will be localed in the `build/<arch>/` directory.
 ```
 (venc) $ jupyter notebook
 ```
+
+## Test
+
+You can test these binary executable files by pushing them to your Android phone and run them.
+
+```
+$ adb push build/arm64-v8a/04_angr_symbolic_stack /data/local/tmp
+$ adb shell
+android:/ $ cd /data/local/tmp
+android:/ $ chmod +x 04_angr_symbolic_stack
+android:/ $ ./04_angr_symbolic_stack
+Enter the password:
+```
