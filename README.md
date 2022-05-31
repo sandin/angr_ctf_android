@@ -8,7 +8,7 @@ This project base on [angr_ctf](https://github.com/jakespringer/angr_ctf), but  
 Create a python venv and install all dependencies in it:
 ```
 $ python -m venv venv
-$ source venv/bin/active
+$ source venv/bin/activate
 
 (venc) $ pip install angr
 (venc) $ pip install jupyter
